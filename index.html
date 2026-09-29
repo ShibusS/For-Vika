@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для Вики</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,serif;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;position:relative;padding:15px}
+.heart-bg{position:fixed;color:rgba(255,100,150,0.3);font-size:20px;animation:floatUp linear infinite;pointer-events:none;z-index:1}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0.5);opacity:0}10%,90%{opacity:1}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
+.card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:40px 30px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);margin:10px;max-height:92vh;overflow-y:auto}
+.screen{display:none;animation:fadeIn 0.8s ease}
+.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.big-heart{font-size:70px;animation:pulse 1.5s ease-in-out infinite;display:inline-block;margin-bottom:15px}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+h1{font-size:26px;margin-bottom:20px;background:linear-gradient(90deg,#ff6b9d,#ffa07a,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 3s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+p{font-size:17px;line-height:1.7;color:#e0e0e0;margin-bottom:16px;text-align:left}
+.name{font-style:italic;color:#ffa07a;font-weight:bold}
+.center{text-align:center}
+.question{font-size:20px;margin-top:25px;color:#fff;text-align:center}
+.buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
+.yes{background:linear-gradient(135deg,#ff6b9d,#ff4757);color:#fff;box-shadow:0 8px 25px rgba(255,71,87,0.5)}
+.no{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.next{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
+.step-dots{display:flex;gap:8px;justify-content:center;margin-bottom:25px}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all 0.3s ease}
+.dot.active{background:#ff6b9d;transform:scale(1.4)}
+.final h2{font-size:30px;color:#ff6b9d;margin-bottom:20px}
+.confetti{position:fixed;width:10px;height:10px;z-index:10;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@media (max-width:500px){.card{padding:30px 20px}h1{font-size:22px}p{font-size:16px}.big-heart{font-size:55px}button{padding:12px 26px;font-size:16px}}
+</style>
+</head>
+<body>
 
+<div class="card">
+<div class="step-dots" id="dots">
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
+<div class="screen active" data-step="0">
+<div class="big-heart">❤️</div>
+<h1>Вика, это тебе</h1>
+<p>Привет. Я долго собирался с духом, чтобы написать это.</p>
+<p>Можно я скажу тебе кое-что важное? Это займёт всего пару минут.</p>
+<div class="buttons">
+<button class="next" onclick="next()">Дальше</button>
+</div>
+</div>
+
+<div class="screen" data-step="1">
+<div class="big-heart">💭</div>
+<h1>Как всё началось</h1>
+<p>Когда мы только начали общаться, я не думал, что всё зайдёт так далеко.</p>
+<p>Но с каждым днём я всё больше ждал твоих сообщений, всё чаще улыбался, вспоминая наши разговоры.</p>
+<p>И в какой-то момент я понял — ты стала для меня больше, чем просто знакомая.</p>
+<div class="buttons">
+<button class="next" onclick="next()">Дальше</button>
+</div>
+</div>
+
+<div class="screen" data-step="2">
+<div class="big-heart">✨</div>
+<h1>Что я чувствую</h1>
+<p>Твоя улыбка делает мой день лучше.</p>
+<p>Твой голос я готов слушать бесконечно.</p>
+<p>Когда ты рядом — мне спокойно и тепло.</p>
+<p>Ты — человек, с которым я хочу делить и смех, и тишину, и все мелочи, из которых складывается что-то большое.</p>
+<div class="buttons">
+<button class="next" onclick="next()">Дальше</button>
+</div>
+</div>
+
+<div class="screen" data-step="3">
+<div class="big-heart">🌹</div>
+<h1>Самое главное</h1>
+<p>Я не хочу больше держать это в себе.</p>
+<p class="center" style="font-size:20px;color:#ffa07a">Вика, ты мне очень сильно нравишься.</p>
+<p class="center">Я хочу быть рядом с тобой. Не просто другом — а твоим человеком.</p>
+<div class="buttons">
+<button class="next" onclick="next()">Дальше</button>
+</div>
+</div>
+
+<div class="screen" data-step="4">
+<div class="big-heart">💕</div>
+<h1>Ну что, Вика?</h1>
+<p class="question">Ты согласна стать моей девушкой?</p>
+<div class="buttons">
+<button class="yes" onclick="sayYes()">Да</button>
+<button class="no" id="noBtn" onclick="moveNo()">Нет</button>
+</div>
+</div>
+
+<div class="screen final" id="finalScreen">
+<div class="big-heart">💖</div>
+<h2>Вика, ты сделала меня счастливым!</h2>
+<p class="center">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
+<p class="center" style="font-size:22px;margin-top:25px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
+</div>
+
+</div>
+
+<script>
+function createHeartBg(){
+var h=document.createElement('div');
+h.classList.add('heart-bg');
+h.textContent=['❤️','💕','💗','💖','💘'][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(15+Math.random()*25)+'px';
+h.style.animationDuration=(8+Math.random()*7)+'s';
+document.body.appendChild(h);
+setTimeout(function(){h.remove()},15000);
+}
+setInterval(createHeartBg,500);
+
+var current=0;
+var screens=document.querySelectorAll('.screen[data-step]');
+var dots=document.querySelectorAll('.dot');
+
+function showStep(n){
+for(var i=0;i<screens.length;i++){screens[i].classList.remove('active')}
+document.querySelector('.screen[data-step="'+n+'"]').classList.add('active');
+for(var j=0;j<dots.length;j++){dots[j].classList.toggle('active',j===n)}
+document.querySelector('.card').scrollTop=0;
+}
+
+function next(){
+current++;
+if(current<screens.length){showStep(current)}
+}
+
+var noBtn=document.getElementById('noBtn');
+var phrases=['Нет','Точно нет?','Подумай ещё 🥺','Пожалуйста...','Неужели нет?','Я подожду...','Дай мне шанс 🌹'];
+function moveNo(){
+noBtn.textContent=phrases[Math.floor(Math.random()*phrases.length)];
+noBtn.style.transform='translate('+(Math.random()-0.5)*180+'px,'+(Math.random()-0.5)*80+'px)';
+noBtn.style.transition='transform 0.3s ease';
+}
+
+function sayYes(){
+for(var i=0;i<screens.length;i++){screens[i].classList.remove('active')}
+for(var j=0;j<dots.length;j++){dots[j].classList.remove('active')}
+document.getElementById('finalScreen').classList.add('active');
+document.getElementById('dots').style.display='none';
+launchConfetti();
+}
+
+function launchConfetti(){
+var colors=['#ff6b9d','#ffa07a','#ffd93d','#6bcB77','#4d96ff','#c56cf0'];
+for(var i=0;i<150;i++){
+(function(){
+setTimeout(function(){
+var c=document.createElement('div');
+c.classList.add('confetti');
+c.style.left=Math.random()*100+'vw';
+c.style.top='-20px';
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+c.style.borderRadius=Math.random()>0.5?'50%':'0';
+c.style.width=c.style.height=(6+Math.random()*10)+'px';
+c.style.animationDuration=(2+Math.random()*3)+'s';
+document.body.appendChild(c);
+setTimeout(function(){c.remove()},5000);
+},i*25);
+})();
+}
+}
+</script>
+
+</body>
+</html>
