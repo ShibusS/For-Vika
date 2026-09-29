@@ -30,7 +30,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all 0.3s ease}
 .dot.active{background:#ff6b9d;transform:scale(1.4)}
 .final h2{font-size:30px;color:#ff6b9d;margin-bottom:20px}
-.confetti{position:fixed;width:10px;height:10px;z-index:10;animation:fall linear forwards}
+.confetti{position:fixed;z-index:10;animation:fall linear forwards;pointer-events:none}
 @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
 @media (max-width:500px){.card{padding:30px 20px}h1{font-size:22px}p{font-size:16px}.big-heart{font-size:55px}button{padding:12px 26px;font-size:16px}}
 </style>
@@ -196,7 +196,6 @@ for(var j=0;j<dots.length;j++){dots[j].classList.remove('active')}
 document.getElementById('finalScreen').classList.add('active');
 document.getElementById('dots').style.display='none';
 
-// Плавная смена фона на тёплый
 document.body.style.transition='background 2s ease';
 document.body.style.background='linear-gradient(135deg,#ff6b9d,#c44569,#8b2f5c)';
 
@@ -204,17 +203,19 @@ launchConfetti();
 }
 
 function launchConfetti(){
-var colors=['#ff6b9d','#ffa07a','#ffd93d','#6bcB77','#4d96ff','#c56cf0'];
+var hearts=['❤️','💕','💗','💖','💘','💝','🌹'];
 for(var i=0;i<150;i++){
 (function(){
 setTimeout(function(){
 var c=document.createElement('div');
 c.classList.add('confetti');
+c.textContent=hearts[Math.floor(Math.random()*hearts.length)];
 c.style.left=Math.random()*100+'vw';
-c.style.top='-20px';
-c.style.background=colors[Math.floor(Math.random()*colors.length)];
-c.style.borderRadius=Math.random()>0.5?'50%':'0';
-c.style.width=c.style.height=(6+Math.random()*10)+'px';
+c.style.top='-40px';
+c.style.fontSize=(18+Math.random()*22)+'px';
+c.style.background='none';
+c.style.width='auto';
+c.style.height='auto';
 c.style.animationDuration=(2+Math.random()*3)+'s';
 document.body.appendChild(c);
 setTimeout(function(){c.remove()},5000);
@@ -222,12 +223,12 @@ setTimeout(function(){c.remove()},5000);
 })();
 }
 }
-  
+
 function showSecret(){
 document.getElementById('secretBtn').style.display='none';
 document.getElementById('secretMessage').style.display='block';
 }
-  
+
 function toggleMusic(){
 var m=document.getElementById('bgMusic');
 var b=document.getElementById('musicBtn');
