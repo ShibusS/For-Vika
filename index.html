@@ -21,7 +21,7 @@ p{font-size:17px;line-height:1.7;color:#e0e0e0;margin-bottom:16px;text-align:lef
 .name{font-style:italic;color:#ffa07a;font-weight:bold}
 .center{text-align:center}
 .question{font-size:20px;margin-top:25px;color:#fff;text-align:center}
-.buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;align-items:center;min-height:60px}
 button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
 .yes{background:linear-gradient(135deg,#ff6b9d,#ff4757);color:#fff;box-shadow:0 8px 25px rgba(255,71,87,0.5)}
 .no{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
@@ -104,11 +104,20 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 
 <div class="screen final" id="finalScreen">
 <div class="big-heart">💖</div>
+<img src="photo1.jpg" style="width:160px;height:160px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block;border:3px solid rgba(255,107,157,0.6);box-shadow:0 10px 30px rgba(0,0,0,0.4)">
 <h2>Вика, ты сделала меня счастливым!</h2>
 <p class="center">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
 <p class="center" style="font-size:22px;margin-top:25px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
 </div>
 
+</div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease">
+🎵
 </div>
 
 <script>
@@ -144,27 +153,20 @@ var noBtn=document.getElementById('noBtn');
 var yesBtn=document.getElementById('yesBtn');
 var noCount=0;
 var phrases=['Нет','Точно нет?','Подумай ещё 🥺','Пожалуйста? 🥺','Неужели нет?','Я подожду...','Дай мне шанс 🌹'];
+
 function moveNo(){
 noCount++;
-
-// Меняем текст
 if(noCount<phrases.length){
 noBtn.textContent=phrases[noCount];
 }else{
 noBtn.textContent='Дай мне шанс 🌹';
 }
-
-// Кнопка "Нет" уменьшается
-var scale=Math.max(0.4, 1-noCount*0.12);
+var scale=Math.max(0.4,1-noCount*0.12);
 noBtn.style.transform='translate('+(Math.random()-0.5)*120+'px,'+(Math.random()-0.5)*60+'px) scale('+scale+')';
 noBtn.style.transition='all 0.3s ease';
-
-// Кнопка "Да" растёт
-var yesScale=Math.min(1.6, 1+noCount*0.12);
+var yesScale=Math.min(1.6,1+noCount*0.12);
 yesBtn.style.transform='scale('+yesScale+')';
 yesBtn.style.transition='all 0.3s ease';
-
-// После 4 нажатий появляется кнопка "Всё равно да"
 if(noCount===4){
 var stillYes=document.createElement('button');
 stillYes.className='yes';
@@ -173,11 +175,10 @@ stillYes.style.animation='pulse 1.5s ease-in-out infinite';
 stillYes.onclick=sayYes;
 document.getElementById('answerButtons').appendChild(stillYes);
 }
-
-// После 7 нажатий кнопка "Нет" исчезает
 if(noCount>=7){
 noBtn.style.opacity='0';
 noBtn.style.pointerEvents='none';
+}
 }
 
 function sayYes(){
@@ -207,40 +208,31 @@ setTimeout(function(){c.remove()},5000);
 })();
 }
 }
-</script>
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
 
-<div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease;">
-  🎵
-</div>
-
-<script>
 function toggleMusic(){
-  var m = document.getElementById('bgMusic');
-  var b = document.getElementById('musicBtn');
-  if(m.paused){
-    m.volume = 0.4;
-    m.play();
-    b.textContent = '⏸️';
-  } else {
-    m.pause();
-    b.textContent = '🎵';
-  }
+var m=document.getElementById('bgMusic');
+var b=document.getElementById('musicBtn');
+if(m.paused){
+m.volume=0.4;
+m.play();
+b.textContent='⏸️';
+}else{
+m.pause();
+b.textContent='🎵';
+}
 }
 
-// Попытка автозапуска при первом клике на странице
-document.addEventListener('click', function startOnce(){
-  var m = document.getElementById('bgMusic');
-  if(m.paused){
-    m.volume = 0.4;
-    m.play().then(function(){
-      document.getElementById('musicBtn').textContent = '⏸️';
-    }).catch(function(){});
-  }
-  document.removeEventListener('click', startOnce);
-}, { once: true });
+document.addEventListener('click',function startOnce(){
+var m=document.getElementById('bgMusic');
+if(m.paused){
+m.volume=0.4;
+m.play().then(function(){
+document.getElementById('musicBtn').textContent='⏸️';
+}).catch(function(){});
+}
+document.removeEventListener('click',startOnce);
+},{once:true});
 </script>
+
 </body>
 </html>
