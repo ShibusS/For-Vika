@@ -176,6 +176,39 @@ setTimeout(function(){c.remove()},5000);
 }
 }
 </script>
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
+<div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease;">
+  🎵
+</div>
+
+<script>
+function toggleMusic(){
+  var m = document.getElementById('bgMusic');
+  var b = document.getElementById('musicBtn');
+  if(m.paused){
+    m.volume = 0.4;
+    m.play();
+    b.textContent = '⏸️';
+  } else {
+    m.pause();
+    b.textContent = '🎵';
+  }
+}
+
+// Попытка автозапуска при первом клике на странице
+document.addEventListener('click', function startOnce(){
+  var m = document.getElementById('bgMusic');
+  if(m.paused){
+    m.volume = 0.4;
+    m.play().then(function(){
+      document.getElementById('musicBtn').textContent = '⏸️';
+    }).catch(function(){});
+  }
+  document.removeEventListener('click', startOnce);
+}, { once: true });
+</script>
 </body>
 </html>
