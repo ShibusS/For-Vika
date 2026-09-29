@@ -108,6 +108,15 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <h2>Вика, ты сделала меня счастливым!</h2>
 <p class="center">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
 <p class="center" style="font-size:22px;margin-top:25px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
+
+<div id="secretBtn" onclick="showSecret()" style="margin-top:30px;font-size:14px;color:rgba(255,255,255,0.4);cursor:pointer;user-select:none;transition:all 0.3s ease">
+🤫 нажми сюда
+</div>
+
+<div id="secretMessage" style="display:none;margin-top:20px;padding:20px;background:rgba(255,107,157,0.15);border:1px solid rgba(255,107,157,0.4);border-radius:16px;animation:fadeIn 0.8s ease">
+<p class="center" style="font-style:italic;color:#ffa07a;margin:0">P.S. Я очень волновался, пока делал это. Спасибо, что ты есть, моя девочка ❤️</p>
+</div>
+
 </div>
 
 </div>
@@ -208,7 +217,12 @@ setTimeout(function(){c.remove()},5000);
 })();
 }
 }
-
+  
+function showSecret(){
+document.getElementById('secretBtn').style.display='none';
+document.getElementById('secretMessage').style.display='block';
+}
+  
 function toggleMusic(){
 var m=document.getElementById('bgMusic');
 var b=document.getElementById('musicBtn');
