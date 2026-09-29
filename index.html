@@ -96,8 +96,8 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="big-heart">💕</div>
 <h1>Ну что, Вика?</h1>
 <p class="question">Ты согласна стать моей девушкой?</p>
-<div class="buttons">
-<button class="yes" onclick="sayYes()">Да</button>
+<div class="buttons" id="answerButtons">
+<button class="yes" id="yesBtn" onclick="sayYes()">Да</button>
 <button class="no" id="noBtn" onclick="moveNo()">Нет</button>
 </div>
 </div>
@@ -141,11 +141,43 @@ if(current<screens.length){showStep(current)}
 }
 
 var noBtn=document.getElementById('noBtn');
-var phrases=['Нет','Точно нет?','Подумай ещё 🥺','Пожалуйста...','Неужели нет?','Я подожду...','Дай мне шанс 🌹'];
+var yesBtn=document.getElementById('yesBtn');
+var noCount=0;
+var phrases=['Нет','Точно нет?','Подумай ещё 🥺','Пожалуйста? 🥺','Неужели нет?','Я подожду...','Дай мне шанс 🌹'];
 function moveNo(){
-noBtn.textContent=phrases[Math.floor(Math.random()*phrases.length)];
-noBtn.style.transform='translate('+(Math.random()-0.5)*180+'px,'+(Math.random()-0.5)*80+'px)';
-noBtn.style.transition='transform 0.3s ease';
+noCount++;
+
+// Меняем текст
+if(noCount<phrases.length){
+noBtn.textContent=phrases[noCount];
+}else{
+noBtn.textContent='Дай мне шанс 🌹';
+}
+
+// Кнопка "Нет" уменьшается
+var scale=Math.max(0.4, 1-noCount*0.12);
+noBtn.style.transform='translate('+(Math.random()-0.5)*120+'px,'+(Math.random()-0.5)*60+'px) scale('+scale+')';
+noBtn.style.transition='all 0.3s ease';
+
+// Кнопка "Да" растёт
+var yesScale=Math.min(1.6, 1+noCount*0.12);
+yesBtn.style.transform='scale('+yesScale+')';
+yesBtn.style.transition='all 0.3s ease';
+
+// После 4 нажатий появляется кнопка "Всё равно да"
+if(noCount===4){
+var stillYes=document.createElement('button');
+stillYes.className='yes';
+stillYes.textContent='Всё равно да ❤️';
+stillYes.style.animation='pulse 1.5s ease-in-out infinite';
+stillYes.onclick=sayYes;
+document.getElementById('answerButtons').appendChild(stillYes);
+}
+
+// После 7 нажатий кнопка "Нет" исчезает
+if(noCount>=7){
+noBtn.style.opacity='0';
+noBtn.style.pointerEvents='none';
 }
 
 function sayYes(){
