@@ -82,10 +82,11 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="big-heart">✨</div>
 <img src="photo2.jpg" class="photo-glow" style="width:180px;height:180px;object-fit:cover;border-radius:20px;margin:10px auto 20px;display:block">
 <h1>Что я чувствую</h1>
-<p>Твоя улыбка делает мой день лучше.</p>
-<p>Твой голос я готов слушать бесконечно.</p>
-<p>Когда ты рядом — мне спокойно и тепло.</p>
-<p>Ты — человек, с которым я хочу делить и смех, и тишину, и все мелочи, из которых складывается что-то большое.</p>
+<p>Обычно говоришь ты, а я слушаю. Я редко что-то рассказываю — не потому что не хочу, а иногда просто нечего.</p>
+<p>Но мне нравится тебя слушать.</p>
+<p>Я всё анализирую и пытаюсь быть идеальным, но, к сожалению, выходит так, как получается.</p>
+<p>Но ты мне дала понять, что идеальным быть невозможно и косячить — это норма, все мы ошибаемся.</p>
+<p>С тобой я чувствую себя живым, хоть иногда и бывают периоды молчания.</p>
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
@@ -134,6 +135,8 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <p class="center">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
 <p class="center" style="font-size:22px;margin-top:25px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
 
+<p class="center" style="font-style:italic;color:#ffa07a;margin-top:25px;font-size:16px;line-height:1.8">«Ты, как Майами зимой.<br>Как бриллиант на свету.<br>Ты, как вернуться домой<br>В 45-м году.»</p>
+
 <div id="secretBtn" onclick="showSecret()" style="margin-top:30px;font-size:14px;color:rgba(255,255,255,0.4);cursor:pointer;user-select:none;transition:all 0.3s ease">
 🤫 нажми сюда
 </div>
@@ -148,6 +151,10 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 
 <audio id="bgMusic" loop>
 <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="finalMusic" loop>
+<source src="music2.mp3" type="audio/mpeg">
 </audio>
 
 <div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease">
@@ -266,6 +273,13 @@ document.getElementById('dots').style.display='none';
 document.body.style.transition='background 2s ease';
 document.body.style.background='linear-gradient(135deg,#ff6b9d,#c44569,#8b2f5c)';
 
+// Смена музыки на финале
+var m1=document.getElementById('bgMusic');
+var m2=document.getElementById('finalMusic');
+m1.pause();
+m2.volume=0.35;
+m2.play().catch(function(){});
+
 launchConfetti();
 }
 
@@ -298,21 +312,27 @@ document.getElementById('secretMessage').style.display='block';
 
 function toggleMusic(){
 var m=document.getElementById('bgMusic');
+var m2=document.getElementById('finalMusic');
 var b=document.getElementById('musicBtn');
-if(m.paused){
-m.volume=0.4;
-m.play();
-b.textContent='⏸️';
-}else{
-m.pause();
+// Проверяем, какая играет
+var active = !m.paused ? m : (!m2.paused ? m2 : null);
+if(active){
+active.pause();
 b.textContent='🎵';
+}else{
+// Запускаем ту, что соответствует текущему экрану
+var isFinal=document.getElementById('finalScreen').classList.contains('active');
+var target=isFinal ? m2 : m;
+target.volume=isFinal ? 0.35 : 0.25;
+target.play();
+b.textContent='⏸️';
 }
 }
 
 document.addEventListener('click',function startOnce(){
 var m=document.getElementById('bgMusic');
 if(m.paused){
-m.volume=0.4;
+m.volume=0.25;
 m.play().then(function(){
 document.getElementById('musicBtn').textContent='⏸️';
 }).catch(function(){});
