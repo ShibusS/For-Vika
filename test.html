@@ -36,6 +36,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 @keyframes photoPulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 20px rgba(255,107,157,0.4)}50%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 40px rgba(255,107,157,0.8)}}
 .confetti{position:fixed;z-index:10;animation:fall linear forwards;pointer-events:none}
 @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+.quote{font-size:13px;font-style:italic;color:rgba(255,255,255,0.35);text-align:center;margin-top:20px}
 @media (max-width:500px){.card{padding:30px 20px}h1{font-size:22px}p{font-size:16px}.big-heart{font-size:55px}button{padding:12px 26px;font-size:16px}}
 </style>
 </head>
@@ -62,7 +63,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
-<div style="font-size:13px;font-style:italic;color:rgba(255,255,255,0.35);text-align:center;margin-top:20px">🎵 SALUKI — homecoming</div>
+<div class="quote">🎵 SALUKI — homecoming</div>
 </div>
 
 <div class="screen" data-step="1">
@@ -76,6 +77,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
+<div class="quote">🎵 «И я тобою пропах»</div>
 </div>
 
 <div class="screen" data-step="2">
@@ -90,6 +92,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
+<div class="quote">🎵 «Ты, как рассветы. Ты, как закаты»</div>
 </div>
 
 <div class="screen" data-step="3">
@@ -105,6 +108,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
+<div class="quote">🎵 «Мы как патрон и курок. Как пара губ на лице»</div>
 </div>
 
 <div class="screen" data-step="4">
@@ -116,6 +120,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
+<div class="quote">🎵 «Всё, что нам нужно — это провести время клёво»</div>
 </div>
 
 <div class="screen" data-step="5">
@@ -126,6 +131,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <button class="yes" id="yesBtn" onclick="sayYes()">Да</button>
 <button class="no" id="noBtn" onclick="moveNo()">Нет</button>
 </div>
+<div class="quote">🎵 «Ты абсолютно везде. И абсолютно всегда»</div>
 </div>
 
 <div class="screen final" id="finalScreen">
@@ -273,7 +279,6 @@ document.getElementById('dots').style.display='none';
 document.body.style.transition='background 2s ease';
 document.body.style.background='linear-gradient(135deg,#ff6b9d,#c44569,#8b2f5c)';
 
-// Смена музыки на финале
 var m1=document.getElementById('bgMusic');
 var m2=document.getElementById('finalMusic');
 m1.pause();
@@ -314,13 +319,11 @@ function toggleMusic(){
 var m=document.getElementById('bgMusic');
 var m2=document.getElementById('finalMusic');
 var b=document.getElementById('musicBtn');
-// Проверяем, какая играет
 var active = !m.paused ? m : (!m2.paused ? m2 : null);
 if(active){
 active.pause();
 b.textContent='🎵';
 }else{
-// Запускаем ту, что соответствует текущему экрану
 var isFinal=document.getElementById('finalScreen').classList.contains('active');
 var target=isFinal ? m2 : m;
 target.volume=isFinal ? 0.35 : 0.25;
