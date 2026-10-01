@@ -11,33 +11,33 @@ body{font-family:Georgia,serif;background:linear-gradient(135deg,#1a1a2e,#16213e
 @keyframes floatUp{0%{transform:translateY(100vh) scale(0.5);opacity:0}10%,90%{opacity:1}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
 .star{position:fixed;background:#fff;border-radius:50%;pointer-events:none;z-index:1;animation:twinkle linear infinite}
 @keyframes twinkle{0%,100%{opacity:0.2;transform:scale(0.7)}50%{opacity:1;transform:scale(1.3)}}
-.card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:40px 30px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);margin:10px;max-height:92vh;overflow-y:auto}
+.card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:35px 25px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);margin:10px;max-height:92vh;overflow-y:auto}
 .screen{display:none;animation:fadeIn 0.8s ease}
 .screen.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-.big-heart{font-size:70px;animation:pulse 1.5s ease-in-out infinite;display:inline-block;margin-bottom:15px}
+.big-heart{font-size:60px;animation:pulse 1.5s ease-in-out infinite;display:inline-block;margin-bottom:10px}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-h1{font-size:26px;margin-bottom:20px;background:linear-gradient(90deg,#ff6b9d,#ffa07a,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 3s linear infinite}
+h1{font-size:24px;margin-bottom:16px;background:linear-gradient(90deg,#ff6b9d,#ffa07a,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 3s linear infinite}
 @keyframes shine{to{background-position:200% center}}
-p{font-size:17px;line-height:1.7;color:#e0e0e0;margin-bottom:16px;text-align:left}
+p{font-size:16px;line-height:1.6;color:#e0e0e0;margin-bottom:12px;text-align:left}
 .name{font-style:italic;color:#ffa07a;font-weight:bold}
 .center{text-align:center}
-.question{font-size:20px;margin-top:25px;color:#fff;text-align:center}
-.buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;align-items:center;min-height:60px}
-button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
+.question{font-size:20px;margin-top:20px;color:#fff;text-align:center}
+.buttons{margin-top:20px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;align-items:center;min-height:50px}
+button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
 .yes{background:linear-gradient(135deg,#ff6b9d,#ff4757);color:#fff;box-shadow:0 8px 25px rgba(255,71,87,0.5)}
 .no{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
 .next{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
-.step-dots{display:flex;gap:8px;justify-content:center;margin-bottom:25px}
+.step-dots{display:flex;gap:8px;justify-content:center;margin-bottom:18px}
 .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all 0.3s ease}
 .dot.active{background:#ff6b9d;transform:scale(1.4)}
-.final h2{font-size:30px;color:#ff6b9d;margin-bottom:20px}
+.final h2{font-size:28px;color:#ff6b9d;margin-bottom:18px}
 .photo-glow{border:3px solid rgba(255,107,157,0.6);box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 25px rgba(255,107,157,0.5);animation:photoPulse 3s ease-in-out infinite}
 @keyframes photoPulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 20px rgba(255,107,157,0.4)}50%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 40px rgba(255,107,157,0.8)}}
 .confetti{position:fixed;z-index:10;animation:fall linear forwards;pointer-events:none}
 @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
-.quote{font-size:13px;font-style:italic;color:rgba(255,255,255,0.35);text-align:center;margin-top:20px}
-@media (max-width:500px){.card{padding:30px 20px}h1{font-size:22px}p{font-size:16px}.big-heart{font-size:55px}button{padding:12px 26px;font-size:16px}}
+.quote{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);text-align:center;margin-top:10px}
+@media (max-width:500px){.card{padding:28px 18px}h1{font-size:21px}p{font-size:15px}.big-heart{font-size:50px}button{padding:11px 24px;font-size:15px}}
 </style>
 </head>
 <body>
@@ -54,7 +54,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 
 <div class="screen active" data-step="0">
 <div class="big-heart">❤️</div>
-<img src="photo1.jpg" class="photo-glow" style="width:180px;height:180px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block">
+<img src="photo1.jpg" class="photo-glow" style="width:170px;height:170px;object-fit:cover;border-radius:50%;margin:8px auto 16px;display:block">
 <h1>Вике. Продолжение</h1>
 <p>Ты как-то сказала, что не понимаешь намёков. Что тебе нужно всё прямо, подкреплённое действиями.</p>
 <p>Так вот — говорю прямо.</p>
@@ -81,7 +81,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 
 <div class="screen" data-step="2">
 <div class="big-heart">✨</div>
-<img src="photo2.jpg" class="photo-glow" style="width:180px;height:180px;object-fit:cover;border-radius:20px;margin:10px auto 20px;display:block">
+<img src="photo2.jpg" class="photo-glow" style="width:170px;height:170px;object-fit:cover;border-radius:20px;margin:8px auto 16px;display:block">
 <h1>Что я чувствую</h1>
 <p>Обычно говоришь ты, а я слушаю. Я редко что-то рассказываю — не потому что не хочу, а иногда просто нечего.</p>
 <p>Но мне нравится тебя слушать.</p>
@@ -97,7 +97,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="screen" data-step="3">
 <div class="big-heart">💭</div>
 <h1>5 причин, почему ты</h1>
-<div style="text-align:left;margin-top:20px;font-size:16px;line-height:1.8">
+<div style="text-align:left;margin-top:16px;font-size:15px;line-height:1.7">
 <p><strong style="color:#ffa07a">1.</strong> «Звёзды плачут, увидев, как ты на них смотришь» — первое, что я тебе написал. А ты ответила: «Как красиво ты стелишь». Это и было начало нас.</p>
 <p><strong style="color:#ffa07a">2.</strong> Твой запах сводит меня с ума. Когда я его слышу — кругом идёт голова.</p>
 <p><strong style="color:#ffa07a">3.</strong> Когда я тебя подъёбываю, ты называешь меня «тварь» и «скотина». И знаешь что? Мне это нравится. Это наша игра, и я не хочу, чтобы она заканчивалась.</p>
@@ -114,7 +114,7 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 <div class="big-heart">🌹</div>
 <h1>Самое главное</h1>
 <p>Я не хочу больше держать это в себе.</p>
-<p class="center" style="font-size:20px;color:#ffa07a">Вика, ты мне очень сильно нравишься.</p>
+<p class="center" style="font-size:19px;color:#ffa07a">Вика, ты мне очень сильно нравишься.</p>
 <p class="center">Я хочу быть рядом с тобой. Не просто другом — а твоим человеком.</p>
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
@@ -135,21 +135,21 @@ button{padding:14px 32px;font-size:17px;border:none;border-radius:50px;cursor:po
 
 <div class="screen final" id="finalScreen">
 <div class="big-heart">💖</div>
-<img src="photo3.jpg" class="photo-glow" style="width:160px;height:160px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block">
+<img src="photo3.jpg" class="photo-glow" style="width:150px;height:150px;object-fit:cover;border-radius:50%;margin:8px auto 16px;display:block">
 <h2>Вика, ты сделала меня счастливым!</h2>
 <p class="center">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
-<p class="center" style="font-size:22px;margin-top:25px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
+<p class="center" style="font-size:21px;margin-top:20px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
 
-<div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-top:25px">
+<div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px">
 <img src="cover2.jpg" style="width:50px;height:50px;border-radius:6px;object-fit:cover;box-shadow:0 5px 15px rgba(255,107,157,0.4)">
-<p style="font-style:italic;color:#ffa07a;font-size:16px;line-height:1.8;text-align:left;margin:0">«Ты, как Майами зимой.<br>Как бриллиант на свету.<br>Ты, как вернуться домой<br>В 45-м году.»</p>
+<p style="font-style:italic;color:#ffa07a;font-size:15px;line-height:1.7;text-align:left;margin:0">«Ты, как Майами зимой.<br>Как бриллиант на свету.<br>Ты, как вернуться домой<br>В 45-м году.»</p>
 </div>
 
-<div id="secretBtn" onclick="showSecret()" style="margin-top:30px;font-size:14px;color:rgba(255,255,255,0.4);cursor:pointer;user-select:none;transition:all 0.3s ease">
+<div id="secretBtn" onclick="showSecret()" style="margin-top:25px;font-size:14px;color:rgba(255,255,255,0.4);cursor:pointer;user-select:none;transition:all 0.3s ease">
 🤫 нажми сюда
 </div>
 
-<div id="secretMessage" style="display:none;margin-top:20px;padding:20px;background:rgba(255,107,157,0.15);border:1px solid rgba(255,107,157,0.4);border-radius:16px;animation:fadeIn 0.8s ease">
+<div id="secretMessage" style="display:none;margin-top:18px;padding:18px;background:rgba(255,107,157,0.15);border:1px solid rgba(255,107,157,0.4);border-radius:16px;animation:fadeIn 0.8s ease">
 <p class="center" style="font-style:italic;color:#ffa07a;margin:0">P.S. Я очень волновался, пока делал это. Спасибо, что ты есть, моя девочка ❤️</p>
 </div>
 
