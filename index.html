@@ -6,38 +6,38 @@
 <title>Вике. Продолжение</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,serif;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;position:relative;padding:15px}
+body{font-family:Georgia,serif;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#fff;position:relative;padding:10px}
 .heart-bg{position:fixed;color:rgba(255,100,150,0.3);font-size:20px;animation:floatUp linear infinite;pointer-events:none;z-index:1}
 @keyframes floatUp{0%{transform:translateY(100vh) scale(0.5);opacity:0}10%,90%{opacity:1}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
 .star{position:fixed;background:#fff;border-radius:50%;pointer-events:none;z-index:1;animation:twinkle linear infinite}
 @keyframes twinkle{0%,100%{opacity:0.2;transform:scale(0.7)}50%{opacity:1;transform:scale(1.3)}}
-.card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:35px 25px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);margin:10px;max-height:92vh;overflow-y:auto}
+.card{position:relative;z-index:2;background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:22px 18px;max-width:620px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);margin:8px;overflow:hidden}
 .screen{display:none;animation:fadeIn 0.8s ease}
 .screen.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-.big-heart{font-size:60px;animation:pulse 1.5s ease-in-out infinite;display:inline-block;margin-bottom:10px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.big-heart{font-size:46px;animation:pulse 1.5s ease-in-out infinite;display:inline-block;margin-bottom:4px}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-h1{font-size:24px;margin-bottom:16px;background:linear-gradient(90deg,#ff6b9d,#ffa07a,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 3s linear infinite}
+h1{font-size:21px;margin-bottom:10px;background:linear-gradient(90deg,#ff6b9d,#ffa07a,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 3s linear infinite}
 @keyframes shine{to{background-position:200% center}}
-p{font-size:16px;line-height:1.6;color:#e0e0e0;margin-bottom:12px;text-align:left}
+p{font-size:14px;line-height:1.5;color:#e0e0e0;margin-bottom:8px;text-align:left}
 .name{font-style:italic;color:#ffa07a;font-weight:bold}
 .center{text-align:center}
-.question{font-size:20px;margin-top:20px;color:#fff;text-align:center}
-.buttons{margin-top:20px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;align-items:center;min-height:50px}
-button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
+.question{font-size:18px;margin-top:14px;color:#fff;text-align:center}
+.buttons{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center;min-height:42px}
+button{padding:10px 24px;font-size:14px;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all 0.3s ease;font-weight:bold}
 .yes{background:linear-gradient(135deg,#ff6b9d,#ff4757);color:#fff;box-shadow:0 8px 25px rgba(255,71,87,0.5)}
 .no{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
 .next{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3)}
-.step-dots{display:flex;gap:8px;justify-content:center;margin-bottom:18px}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all 0.3s ease}
+.step-dots{display:flex;gap:7px;justify-content:center;margin-bottom:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);transition:all 0.3s ease}
 .dot.active{background:#ff6b9d;transform:scale(1.4)}
-.final h2{font-size:26px;color:#ff6b9d;margin-bottom:14px}
+.final h2{font-size:22px;color:#ff6b9d;margin-bottom:8px}
 .photo-glow{border:3px solid rgba(255,107,157,0.6);box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 25px rgba(255,107,157,0.5);animation:photoPulse 3s ease-in-out infinite}
 @keyframes photoPulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 20px rgba(255,107,157,0.4)}50%{box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 40px rgba(255,107,157,0.8)}}
 .confetti{position:fixed;z-index:10;animation:fall linear forwards;pointer-events:none}
 @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
-.quote{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);text-align:center;margin-top:10px}
-@media (max-width:500px){.card{padding:26px 18px}h1{font-size:21px}p{font-size:15px}.big-heart{font-size:50px}button{padding:11px 24px;font-size:15px}}
+.quote{font-size:12px;font-style:italic;color:rgba(255,255,255,0.45);text-align:center;margin-top:6px}
+@media (max-width:500px){.card{padding:20px 14px}h1{font-size:20px}p{font-size:13px;line-height:1.45}.big-heart{font-size:42px}button{padding:10px 22px;font-size:14px}}
 </style>
 </head>
 <body>
@@ -54,7 +54,7 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 
 <div class="screen active" data-step="0">
 <div class="big-heart">❤️</div>
-<img src="photo1.jpg" class="photo-glow" style="width:160px;height:160px;object-fit:cover;border-radius:50%;margin:6px auto 14px;display:block">
+<img src="photo1.jpg" class="photo-glow" style="width:110px;height:110px;object-fit:cover;border-radius:50%;margin:2px auto 8px;display:block">
 <h1>Вике. Продолжение</h1>
 <p>Ты как-то сказала, что не понимаешь намёков. Что тебе нужно всё прямо, подкреплённое действиями.</p>
 <p>Так вот — говорю прямо.</p>
@@ -62,17 +62,17 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
-<div class="quote" style="display:flex;align-items:center;justify-content:center;gap:8px"><img src="cover.jpg" style="width:22px;height:22px;border-radius:4px;object-fit:cover">SALUKI — homecoming</div>
+<div class="quote" style="display:flex;align-items:center;justify-content:center;gap:6px"><img src="cover.jpg" style="width:18px;height:18px;border-radius:4px;object-fit:cover">SALUKI — homecoming</div>
 </div>
 
 <div class="screen" data-step="1">
 <div class="big-heart">💭</div>
 <h1>Как всё началось</h1>
-<p>Мы познакомились на бибинто. Пиздец, конечно. Ты зашла туда буквально на пару дней — и сразу встретила меня. Не судьба ли это?</p>
-<p>Потом — переписки по ночам, вечера во дворе, огни чужих квартир, как мы укрылись от дождя в твоём подъезде с чикенбургерами.</p>
-<p>А потом я шёл от тебя домой. 10 километров пешком. Ты предлагала вызвать такси, а я отказался. Сказал, что лучше пройдусь, чем буду тратить деньги.</p>
-<p>Но если честно — дело было не в деньгах.</p>
-<p>Просто мне нужно было время, чтобы понять, что я чувствую. И я понял — ты мне не безразлична.</p>
+<p style="font-size:13px;line-height:1.45;margin-bottom:7px">Мы познакомились на бибинто. Пиздец, конечно. Ты зашла туда буквально на пару дней — и сразу встретила меня. Не судьба ли это?</p>
+<p style="font-size:13px;line-height:1.45;margin-bottom:7px">Потом — переписки по ночам, вечера во дворе, огни чужих квартир, как мы укрылись от дождя в твоём подъезде с чикенбургерами.</p>
+<p style="font-size:13px;line-height:1.45;margin-bottom:7px">А потом я шёл от тебя домой. 10 километров пешком. Ты предлагала вызвать такси, а я отказался. Сказал, что лучше пройдусь, чем буду тратить деньги.</p>
+<p style="font-size:13px;line-height:1.45;margin-bottom:7px">Но если честно — дело было не в деньгах.</p>
+<p style="font-size:13px;line-height:1.45;margin-bottom:7px">Просто мне нужно было время, чтобы понять, что я чувствую. И я понял — ты мне не безразлична.</p>
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
 </div>
@@ -81,7 +81,7 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 
 <div class="screen" data-step="2">
 <div class="big-heart">✨</div>
-<img src="photo2.jpg" class="photo-glow" style="width:160px;height:160px;object-fit:cover;border-radius:20px;margin:6px auto 14px;display:block">
+<img src="photo2.jpg" class="photo-glow" style="width:100px;height:100px;object-fit:cover;border-radius:16px;margin:2px auto 8px;display:block">
 <h1>Что я чувствую</h1>
 <p>Обычно говоришь ты, а я слушаю. Я редко что-то рассказываю — не потому что не хочу, а иногда просто нечего.</p>
 <p>Но мне нравится тебя слушать.</p>
@@ -97,12 +97,12 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 <div class="screen" data-step="3">
 <div class="big-heart">💭</div>
 <h1>5 причин, почему ты</h1>
-<div style="text-align:left;margin-top:14px;font-size:15px;line-height:1.65">
-<p><strong style="color:#ffa07a">1.</strong> «Звёзды плачут, увидев, как ты на них смотришь» — первое, что я тебе написал. А ты ответила: «Как красиво ты стелишь». Это и было начало нас.</p>
-<p><strong style="color:#ffa07a">2.</strong> Твой запах сводит меня с ума. Когда я его слышу — кругом идёт голова.</p>
-<p><strong style="color:#ffa07a">3.</strong> Когда я тебя подъёбываю, ты называешь меня «тварь» и «скотина». И знаешь что? Мне это нравится. Это наша игра, и я не хочу, чтобы она заканчивалась.</p>
-<p><strong style="color:#ffa07a">4.</strong> Ты пошутила: «Буду приходить с завода, открывать пиво и пиздить тебя с ребёнком». В этот момент я понял — вот она. Та самая. С таким человеком я хочу строить жизнь.</p>
-<p><strong style="color:#ffa07a">5.</strong> Ты положила свои холодные ноги под мои, когда мы лежали в обнимку. Мелочь. Но именно тогда я понял — рядом с тобой я дома.</p>
+<div style="text-align:left;margin-top:8px;font-size:13px;line-height:1.45">
+<p style="margin-bottom:7px"><strong style="color:#ffa07a">1.</strong> «Звёзды плачут, увидев, как ты на них смотришь» — первое, что я тебе написал. А ты ответила: «Как красиво ты стелишь». Это и было начало нас.</p>
+<p style="margin-bottom:7px"><strong style="color:#ffa07a">2.</strong> Твой запах сводит меня с ума. Когда я его слышу — кругом идёт голова.</p>
+<p style="margin-bottom:7px"><strong style="color:#ffa07a">3.</strong> Когда я тебя подъёбываю, ты называешь меня «тварь» и «скотина». И знаешь что? Мне это нравится. Это наша игра, и я не хочу, чтобы она заканчивалась.</p>
+<p style="margin-bottom:7px"><strong style="color:#ffa07a">4.</strong> Ты пошутила: «Буду приходить с завода, открывать пиво и пиздить тебя с ребёнком». В этот момент я понял — вот она. Та самая. С таким человеком я хочу строить жизнь.</p>
+<p style="margin-bottom:7px"><strong style="color:#ffa07a">5.</strong> Ты положила свои холодные ноги под мои, когда мы лежали в обнимку. Мелочь. Но именно тогда я понял — рядом с тобой я дома.</p>
 </div>
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
@@ -114,7 +114,7 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 <div class="big-heart">🌹</div>
 <h1>Самое главное</h1>
 <p>Я не хочу больше держать это в себе.</p>
-<p class="center" style="font-size:19px;color:#ffa07a">Вика, ты мне очень сильно нравишься.</p>
+<p class="center" style="font-size:17px;color:#ffa07a">Вика, ты мне очень сильно нравишься.</p>
 <p class="center">Я хочу быть рядом с тобой. Не просто другом — а твоим человеком.</p>
 <div class="buttons">
 <button class="next" onclick="next()">Дальше</button>
@@ -135,22 +135,22 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 
 <div class="screen final" id="finalScreen">
 <div class="big-heart">💖</div>
-<img src="photo3.jpg" class="photo-glow" style="width:120px;height:120px;object-fit:cover;border-radius:50%;margin:4px auto 10px;display:block">
+<img src="photo3.jpg" class="photo-glow" style="width:100px;height:100px;object-fit:cover;border-radius:50%;margin:2px auto 8px;display:block">
 <h2>Вика, ты сделала меня счастливым!</h2>
-<p class="center" style="margin-bottom:8px">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
-<p class="center" style="font-size:20px;margin-top:10px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
+<p class="center" style="margin-bottom:6px;font-size:13px">Спасибо, что ты есть. Я обещаю быть рядом, беречь тебя и делать каждый твой день немного счастливее.</p>
+<p class="center" style="font-size:17px;margin-top:8px;color:#ffa07a">С этого дня — мы вместе 🌹</p>
 
-<div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px">
-<img src="cover2.jpg" style="width:45px;height:45px;border-radius:6px;object-fit:cover;box-shadow:0 5px 15px rgba(255,107,157,0.4)">
-<p style="font-style:italic;color:#ffa07a;font-size:14px;line-height:1.6;text-align:left;margin:0">«Ты, как Майами зимой.<br>Как бриллиант на свету.<br>Ты, как вернуться домой<br>В 45-м году.»</p>
+<div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px">
+<img src="cover2.jpg" style="width:38px;height:38px;border-radius:6px;object-fit:cover;box-shadow:0 5px 15px rgba(255,107,157,0.4)">
+<p style="font-style:italic;color:#ffa07a;font-size:12px;line-height:1.45;text-align:left;margin:0">«Ты, как Майами зимой.<br>Как бриллиант на свету.<br>Ты, как вернуться домой<br>В 45-м году.»</p>
 </div>
 
-<div id="secretBtn" onclick="showSecret()" style="margin-top:12px;font-size:14px;color:rgba(255,255,255,0.5);cursor:pointer;user-select:none;transition:all 0.3s ease">
+<div id="secretBtn" onclick="showSecret()" style="margin-top:8px;font-size:12px;color:rgba(255,255,255,0.5);cursor:pointer;user-select:none;transition:all 0.3s ease">
 🤫 нажми сюда
 </div>
 
-<div id="secretMessage" style="display:none;margin-top:14px;padding:16px;background:rgba(255,107,157,0.15);border:1px solid rgba(255,107,157,0.4);border-radius:16px;animation:fadeIn 0.8s ease">
-<p class="center" style="font-style:italic;color:#ffa07a;margin:0">P.S. Я очень волновался, пока делал это. Спасибо, что ты есть, моя девочка ❤️</p>
+<div id="secretMessage" style="display:none;margin-top:10px;padding:12px;background:rgba(255,107,157,0.15);border:1px solid rgba(255,107,157,0.4);border-radius:16px;animation:fadeIn 0.8s ease">
+<p class="center" style="font-style:italic;color:#ffa07a;margin:0;font-size:13px">P.S. Я очень волновался, пока делал это. Спасибо, что ты есть, моя девочка ❤️</p>
 </div>
 
 </div>
@@ -165,7 +165,7 @@ button{padding:13px 30px;font-size:16px;border:none;border-radius:50px;cursor:po
 <source src="music2.mp3" type="audio/mpeg">
 </audio>
 
-<div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:20px;right:20px;z-index:100;width:50px;height:50px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease">
+<div id="musicBtn" onclick="toggleMusic()" style="position:fixed;bottom:15px;right:15px;z-index:100;width:44px;height:44px;border-radius:50%;background:rgba(255,107,157,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;box-shadow:0 5px 20px rgba(255,71,87,0.5);transition:all 0.3s ease">
 🎵
 </div>
 
@@ -231,7 +231,6 @@ function showStep(n){
 for(var i=0;i<screens.length;i++){screens[i].classList.remove('active')}
 document.querySelector('.screen[data-step="'+n+'"]').classList.add('active');
 for(var j=0;j<dots.length;j++){dots[j].classList.toggle('active',j===n)}
-document.querySelector('.card').scrollTop=0;
 heartBurst();
 }
 
@@ -253,7 +252,7 @@ noBtn.textContent=phrases[noCount];
 noBtn.textContent='Дай мне шанс 🌹';
 }
 var scale=Math.max(0.4,1-noCount*0.12);
-noBtn.style.transform='translate('+(Math.random()-0.5)*120+'px,'+(Math.random()-0.5)*60+'px) scale('+scale+')';
+noBtn.style.transform='translate('+(Math.random()-0.5)*100+'px,'+(Math.random()-0.5)*50+'px) scale('+scale+')';
 noBtn.style.transition='all 0.3s ease';
 var yesScale=Math.min(1.6,1+noCount*0.12);
 yesBtn.style.transform='scale('+yesScale+')';
